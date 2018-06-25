@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="about__intro">
+        <div class="about__intro__block">
+            <h1 class="about__intro__title">We are a community of student nomads</h1>
+            <h2 class="about__intro__slogan">Here are some reasons why you should join us!</h2>
+        </div>
+
+        <div class="about__pointers__container">
+            <div class="about__left__pointer">
+                <div class="about__left__pointer__top">
+                    <h2 class="about__left__pointer__top--title">
+                        It is difficult to find that perfect overseas college that ticks all your boxes.
+                    </h2>
+                    <h2 class="about__left__pointer__top--description">
+                        Use our powerful filters, to easily comb through our database in seconds.
+                    </h2>
+                </div>
+                <div class="about__left__pointer__roadmap">
+                    <div class="about__left__pointer__roadmap--left">
+                        <div class="left__roadmap__current__filters">
+                            Current Filters 👇
+                        </div>
+                        <div class="left__roadmap__current__filters--list">
+                            <h2>Multiple Modules</h2>
+                            <h2>Continents</h2>
+                            <h2>University QS Rankings</h2>
+                            <h2>Cost</h2>
+                        </div>
+                    </div>
+                    <div class="about__left__pointer__roadmap--right">
+                        <div class="left__roadmap__coming__soon">
+                            Coming Soon 💣
+                        </div>
+                        <div class="left__roadmap__coming__soon--list">
+                            <h2>Weather</h2>
+                            <h2>Grades & Other Requirements</h2>
+                            <h2>Visa Requirement</h2>
+                            <h2>...</h2>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="about__left__pointer--conditions">* Only Business Faculty Modules are supported in BETA</h2>
+            </div>
+            <div class="about__right__pointer">
+                <div class="about__right__pointer__top">
+                    <h2 class="about__right__pointer__top--title">
+                        It is harder to find people going to the same overseas college as yourself.
+                    </h2>
+                    <h2 class="about__right__pointer__top--description">
+                        Connect to people who are going to the same overseas college as yourself!
+                    </h2>
+                </div>
+                <div class="about__right__pointer__roadmap">
+                    <div class="right__roadmap__coming__soon">
+                        Coming Soon 💣
+                    </div>
+                    <div class="right__roadmap__coming__soon--list">
+                        <h2>FAQ For Each Overseas College</h2>
+                        <h2>Connect to people going to each overseas college</h2>
+                        <h2>NUS Nomads Chat</h2>
+                        <h2>Overseas College Map View</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="about__story">
+        <h1 class="about__story__title">Our Story</h1>
+        <h2 class="about__story__description">One fine evening we sat on a porch lamenting about how backdated the process is to source 
+for a good exchange university - a phase so important for thousands of University students 
+each year. With no hesitation, we stayed up that night and faced our problems head on.
+        </h2>
+        &nbsp;
+        <h2 class="about__story__description">Fret not, we took it in our hands, just for you & of course, us. NUS Nomads is a one-stop 
+solution presenting a unique exchange-university filtering system, specialised for past 
+module mapping search. </h2>
+        &nbsp;
+        <h2 class="about__story__description">Nuff said, trust us, we’ve got your back - hop on now!</h2>
+    </section>
+
+    <section class="the__crew">
+        <h1 class="the__crew__title">The Crew</h1>
+        <div class="the__crew__container">
+            <div class="crew__member">
+                <div class="crew__image__cropper">
+                    <img class="crew__image" src="{{ url_for('static', filename=('jov.jpg')) }}" alt="Jovin">
+                </div>
+                <h2 class="crew__member__name">Jovin Liew</h2>
+                <h2 class="crew__member__title">Developer</h2>
+            </div>
+            <div class="crew__member">
+                <div class="crew__image__cropper">
+                    <img class="crew__image" src="{{ url_for('static', filename=('cheri.jpg')) }}" alt="Cheri">
+                </div>
+                <h2 class="crew__member__name">Cheri Tng</h2>
+                <h2 class="crew__member__title">Marketer</h2>
+            </div>
+            <div class="crew__member">
+                <div class="crew__image__cropper">
+                    <img class="crew__image" src="{{ url_for('static', filename=('akita.jpg')) }}" alt="Akita">
+                </div>
+                <h2 class="crew__member__name">Akita The Dog</h2>
+                <h2 class="crew__member__title">Mascot</h2>
+            </div>
+        </div>
+        <h2 class="the__crew__slogan">We are a small team obsessed with creating beautiful digital products.</h2>
+    </section>
+
+{% endblock %}

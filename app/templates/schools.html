@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <section class="school__header__block">
+        <div class="school__intro">
+            <div class="school__intro__invisible">
+                <div class="school__image__cropper">
+                    <img class="school__image" src="{{ url_for('static', filename=('unis/' + school.partner_uni_image)) }}" alt={{ school.partner_uni }}>
+                </div>
+                <div class="school__intro__text">
+                    <h1 class="school__name">{{ school.partner_uni }}</h1>
+                    {% if school.partner_uni_state %}
+                        <h2 class="school__location">{{ school.partner_uni_country }}, {{ school.partner_uni_state }}</h2>
+                {% else %}
+                        <h2 class="school__location">{{school.partner_uni_country}}</h2>
+                    {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="module__table">
+        <table>
+            <thead>
+                <tr class="header">
+                    <th scope="col">🇸🇬 Local Modules</th>
+                    <th scope="col">🌎 Overseas Modules</th>
+                    <th scope="col">🚌 Faculty</th>
+                </tr>
+            </thead>
+            {% for mod in modules %}
+                {% if mod.partner_uni_module_1_credits %}
+                    <tbody>
+                        <tr>
+                            <td><pre><span class="module_code">{{ mod.nus_module_1 }}</span>
+<span class="module_details">{{ mod.nus_module_1_title }}</span>
+<span class="module_details">{{ mod.nus_module_1_credits }} MCs</span></pre></td>
+                            <td><pre><span class="module_code">{{ mod.partner_uni_module_1 }}</span>
+<span class="module_details">{{ mod.partner_uni_module_1_title }}</span>
+<span class="module_details">{{ mod.partner_uni_module_1_credits }} MCs</pre></span></td>
+                            <td><span class="module_code">{{ mod.faculty }}</span></td>
+                        </tr>
+                    </tbody>
+                {% else %}
+                    <tbody>
+                        <tr>
+                            <td><pre><span class="module_code">{{ mod.nus_module_1 }}</span>
+<span class="module_details">{{ mod.nus_module_1_title }}</span>
+<span class="module_details">{{ mod.nus_module_1_credits }} MCs</span></pre></td>
+                            <td><pre><span class="module_code">{{ mod.partner_uni_module_1 }}</span>
+<span class="module_details">{{ mod.partner_uni_module_1_title }}</span>
+<span class="module_details">MCs not specified</span></pre></td>
+                            <td><span class="module_code">{{ mod.faculty }}</span></td>
+                        </tr>
+                    </tbody>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </section>
+
+{% endblock %}

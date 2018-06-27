@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from app import app
 from app import db
-from app.models import Modules, Mapping
+from app.models import Modules, Mapping, User
 
 from modules_importer import ModuleImporter
 from mapping_importer import MappingImporter
@@ -135,7 +135,7 @@ def module_filters():
     else: 
         return ''
 
-
+#school pages endpoint
 @app.route('/school/<uni>')
 def school_page(uni):
     engine = create_engine('sqlite:///app.db')
@@ -180,6 +180,7 @@ def oauth_authorize(provider):
     if not current_user.is_anonymous:
         return redirect(url_for('index'))
     oauth = OAuthSignIn.get_provider(provider)
+    print(oauth)
     return oauth.authorize()
 
 #OAuth callback phase
@@ -188,6 +189,7 @@ def oauth_callback(provider):
     if not current_user.is_anonymous:
         return redirect(url_for('index'))
     oauth = OAuthSignIn.get_provider(provider)
+    print(oauth)
     social_id, username, email = oauth.callback()
     if social_id is None:
         flash('Authentication failed.')
@@ -199,7 +201,5 @@ def oauth_callback(provider):
         db.session.commit()
     login_user(user,True)
     return redirect(url_for('index'))
-
-
 
 

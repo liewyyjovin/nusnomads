@@ -954,6 +954,8 @@ img.crew__image {
 }
 
 .close-button {
+    margin-right: 2rem;
+    margin-top: 1.5rem;
     float: right;
     width: 1.5rem;
     font-size: 24px;
@@ -978,7 +980,7 @@ img.crew__image {
 
 .split {
     height: 100%;
-    width: 25rem;
+    width: 50%;
     position: fixed;
     z-index: 1001;
     top: 0;
@@ -987,6 +989,7 @@ img.crew__image {
 
 .modal__left {
     left: 0;
+    width: 25rem;
     background-color: #2A2A2A;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -994,14 +997,20 @@ img.crew__image {
     height: 350px;
 }
 
-.modal_right {
+.modal__right {
     right: 0;
     background-color: #353535;
-    height: 200px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .social__login__container {
-    margin-left: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 250px;
 }
 
 img.logo__modal {
@@ -1029,4 +1038,37 @@ img.logo__modal {
     font-size: 12px;
     font-weight: 400;
     color: white;
+}
+
+button.social__button--facebook {
+    color: white;
+    background-color: #3A5998;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 15px 10px 15px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    width: 250px;
+}
+
+button.social__button--twitter {
+    margin-top: 10px;
+    color: white;
+    background-color: #1DA1F2;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 15px 10px 15px;
+    cursor: pointer;
+    letter-spacing:0.5px;
+    width: 250px;
+}
+
+span.social__text {
+    margin-left: 8px;
 }

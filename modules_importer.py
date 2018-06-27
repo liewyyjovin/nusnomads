@@ -116,5 +116,5 @@ class ModuleImporter(object):
 if __name__ == "__main__":
     app = ModuleImporter()
     #app.module_parser()
-    #app.module_extract()
+    app.module_extract()
     app.db_module_load()

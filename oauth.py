@@ -28,7 +28,7 @@ class OAuthSignIn(object):
             for provider_class in self.__subclasses__():
                 provider = provider_class()
                 self.providers[provider.provider_name] = provider
-            return self.providers[provider_name]
+        return self.providers[provider_name]
 
 class FacebookSignIn(OAuthSignIn):
     def __init__(self):
@@ -85,7 +85,7 @@ class TwitterSignIn(OAuthSignIn):
 
     def authorize(self):
         request_token = self.service.get_request_token(
-                params={'oauth_callback': self.get_callback_url(request_token[0])}
+                params={'oauth_callback': self.get_callback_url()}
                 )
         session['request_token'] = request_token
         return redirect(self.service.get_authorize_url(request_token[0]))

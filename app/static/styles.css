@@ -133,6 +133,7 @@ img.logo {
     color: white;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .header__link.header__link--primary {

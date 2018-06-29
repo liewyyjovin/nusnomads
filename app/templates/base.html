@@ -44,7 +44,7 @@
                 <div class="logo__beta">Beta</div>
             </a>
             <div class="header__end">
-                <a class="header__link" href="/users/sign_in">Sign in</a>
+                <a class="header__link" id="trigger__signin">Sign in</a>
                 <button class="header__link header__link--primary" id="trigger__header">Join us</button>
             </div>
         </div>
@@ -55,6 +55,7 @@
 //Include Login Modal
     var modal = document.querySelector(".modal");
     var trigger__header = document.getElementById("trigger__header");
+    var trigger__signin = document.getElementById("trigger__signin");
     var trigger__cta = document.getElementById("trigger__cta");
     var closeButton = document.querySelector(".close-button");
 
@@ -68,6 +69,7 @@
          }
      }
 
+    trigger__signin.addEventListener("click", toggleModal);
     trigger__header.addEventListener("click", toggleModal);
     closeButton.addEventListener("click", toggleModal);
     window.addEventListener("click", windowOnClick);

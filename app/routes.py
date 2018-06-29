@@ -10,7 +10,7 @@ import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy import text
 from sqlalchemy import and_
-from flask import Flask, render_template, url_for, request, session, redirect
+from flask import Flask, render_template, url_for, request, session, redirect, flash
 from flask_login import current_user, UserMixin, login_user, logout_user, LoginManager
 from oauth import OAuthSignIn
 
@@ -63,7 +63,7 @@ def continent_filters():
                     WHERE partner_uni_continent = "{}"
                     GROUP BY partner_uni
                     '''.format(str(continent_list[0])))
-        elif len(continent_list) == 2: 
+        elif len(continent_list) == 2:
             continent_uni = con.execute('''
                     SELECT DISTINCT(partner_uni) FROM mapping
                     WHERE partner_uni_continent = "{}"
@@ -78,7 +78,7 @@ def continent_filters():
                     OR partner_uni_continent = "{}"
                     GROUP BY partner_uni
                 '''.format(str(continent_list[0]), str(continent_list[1]), str(continent_list[2])))
-        else: 
+        else:
             continent_uni = con.execute('''
                     SELECT DISTINCT(partner_uni) FROM mapping
                     ''')
@@ -90,8 +90,8 @@ def continent_filters():
         print(colored("Number of universities mapped:", "red") + " " + colored(str(mapped_uni_counter),"red"))
         print(selected_unis)
         return json.dumps(selected_unis)
- 
-    else: 
+
+    else:
         return ''
 
 #Modules Filter Endpoint
@@ -113,11 +113,11 @@ def module_filters():
             module_code_list.append(module_code)
 
         if len(module_code_list) == 1:
-            mapped_uni = con.execute(''' 
+            mapped_uni = con.execute('''
                 SELECT DISTINCT(partner_uni) FROM mapping
                 WHERE nus_module_1 LIKE "{}"
                 GROUP BY partner_uni'''.format(str(module_code_list[0])))
-        else: 
+        else:
             mapped_uni = con.execute('''
                 SELECT partner_uni FROM mapping
                 WHERE nus_module_1 in {}
@@ -132,7 +132,7 @@ def module_filters():
         print(colored("Number of universities mapped:", "red") + " " + colored(str(mapped_uni_counter),"red"))
         print(selected_unis)
         return json.dumps(selected_unis)
-    else: 
+    else:
         return ''
 
 #school pages endpoint
@@ -168,9 +168,6 @@ def school_page(uni):
 @app.route('/about')
 def about_page():
     return render_template('about.html')
-    
-if __name__ == '__main__':
-    app.run(debug=True, use_reloader=True)
 
 
 #OAuth authorization phase
@@ -180,7 +177,6 @@ def oauth_authorize(provider):
     if not current_user.is_anonymous:
         return redirect(url_for('index'))
     oauth = OAuthSignIn.get_provider(provider)
-    print(oauth)
     return oauth.authorize()
 
 #OAuth callback phase
@@ -189,7 +185,6 @@ def oauth_callback(provider):
     if not current_user.is_anonymous:
         return redirect(url_for('index'))
     oauth = OAuthSignIn.get_provider(provider)
-    print(oauth)
     social_id, username, email = oauth.callback()
     if social_id is None:
         flash('Authentication failed.')
@@ -201,5 +196,4 @@ def oauth_callback(provider):
         db.session.commit()
     login_user(user,True)
     return redirect(url_for('index'))
-
 

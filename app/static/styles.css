@@ -371,6 +371,7 @@ li#modules > * {
     box-sizing: border-box;
     background-color: #2A2A2A;
     z-index: 10;
+    overflow-y: scroll;
 }
 
 #menu-switch:checked ~ #menu {
@@ -472,7 +473,15 @@ li#modules > * {
 }
 
 .filter__continent {
-    margin-top: 200px;
+    margin-top: 30px;
+}
+
+.filter__rankings {
+    margin-top: 30px;
+}
+
+.filter__cost {
+    margin-top: 100px;
 }
 
 .filter__title {
@@ -489,7 +498,7 @@ li#modules > * {
     align-items: center;
 }
 
-.filter__blocks {
+.filter__blocks--continents {
     display: block;
     border-radius: 8px;
     background: #363636;
@@ -506,11 +515,61 @@ li#modules > * {
     cursor: pointer;
 }
 
-.filter__blocks.active {
+.filter__blocks--rankings {
+    display: block;
+    border-radius: 8px;
+    background: #363636;
+    height: 70px;
+    width: 210px;
+    margin-right: 10px;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 70px;
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+}
+
+.filter__blocks--cost {
+    display: block;
+    border-radius: 8px;
+    background: #363636;
+    height: 70px;
+    width: 210px;
+    margin-right: 10px;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 70px;
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+}
+
+.filter__blocks--continents.active {
     background: #2F8BE6;
 }
 
-.filter__blocks:hover {
+.filter__blocks--rankings.active {
+    background: #2F8BE6;
+}
+
+.filter__blocks--cost.active {
+    background: #2F8BE6;
+}
+
+.filter__blocks--continents:hover {
+    background: #2F8BE6;
+}
+
+.filter__blocks--rankings:hover {
+    background: #2F8BE6;
+}
+
+.filter__blocks--cost:hover {
     background: #2F8BE6;
 }
 

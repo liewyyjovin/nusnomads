@@ -41,9 +41,98 @@ def index():
         uni_content = dict(uni)
         uni_content_list.append(uni_content)
 
-    #making uni_content_list a json file
+    #Get complete uni list for multiple filters intersection default settings
+    complete_uni_list = con.execute('''
+            SELECT DISTINCT(partner_uni)
+            FROM mapping
+            GROUP BY partner_uni;
+            ''')
+    for uni in complete_uni_list:
+        complete_uni_list = [uni for uni, in complete_uni_list]
 
-    return render_template('index.html', module_data=module_data, uni_content_list=uni_content_list)
+    return render_template('index.html', module_data=module_data, uni_content_list=uni_content_list, unis=complete_uni_list)
+
+#QS Ranking Filter Endpoint
+@app.route('/_qs_ranking_filters', methods=['POST'])
+def qs_ranking_filters():
+    engine = create_engine('sqlite:///app.db')
+    con = engine.connect()
+    if request.method == 'POST':
+        rankings = request.get_json()
+        rank = rankings['ranking']
+        #Return number only
+        if rank:
+            rank_number = rankings['ranking']
+            print(rank_number)
+            selected_unis = con.execute('''
+                SELECT DISTINCT(partner_uni)
+                FROM mapping
+                WHERE partner_uni_qs_ranking <= {}
+                '''.format(rank_number))
+            for uni in selected_unis:
+                selected_unis = [uni for uni, in selected_unis]
+                print(selected_unis)
+        else:
+            selected_unis = con.execute('''
+                    SELECT DISTINCT(partner_uni)
+                    FROM mapping
+                    ''')
+            for uni in selected_unis:
+                selected_unis = [uni for uni, in selected_unis]
+                print(selected_unis)
+        return json.dumps(selected_unis)
+    else:
+        return ''
+
+#Cost Filter Endpoint
+@app.route('/_cost_filters', methods=['POST'])
+def cost_filters():
+    cost_list = []
+    engine = create_engine('sqlite:///app.db')
+    con = engine.connect()
+    if request.method == 'POST':
+        response = request.get_json()
+        costs = response['costList']
+        for cost in costs:
+            cost_list.append(cost)
+        print(cost_list)
+        if len(cost_list) == 1:
+            cost_uni = con.execute('''
+                    SELECT DISTINCT(partner_uni) FROM mapping
+                    WHERE cost_sgd_avg BETWEEN {}
+                    GROUP BY partner_uni
+                    '''.format(str(cost_list[0])))
+        elif len(cost_list) == 2:
+            cost_uni = con.execute('''
+                    SELECT DISTINCT(partner_uni) FROM mapping
+                    WHERE (cost_sgd_avg BETWEEN {})
+                    OR (cost_sgd_avg BETWEEN {})
+                    GROUP BY partner_uni
+                    '''.format(str(cost_list[0]), str(cost_list[1])))
+        elif len(cost_list) == 3:
+            cost_uni = con.execute('''
+                    SELECT DISTINCT(partner_uni) FROM mapping
+                    WHERE (cost_sgd_avg BETWEEN {})
+                    OR (cost_sgd_avg BETWEEN {})
+                    OR (cost_sgd_avg BETWEEN {})
+                    GROUP BY partner_uni
+                    '''.format(str(cost_list[0]), str(cost_list[1]), str(cost_list[2])))
+        else:
+            cost_uni = con.execute('''
+                    SELECT DISTINCT(partner_uni) FROM mapping
+                    GROUP BY partner_uni
+                    ''')
+        mapped_uni_counter = 0
+        for cost in cost_uni:
+            selected_unis = [cost for cost, in cost_uni]
+        for x in selected_unis:
+            mapped_uni_counter += 1
+        print(colored("Number of universities mapped:", "red") + " " + colored(str(mapped_uni_counter),"red"))
+        print(selected_unis)
+        return json.dumps(selected_unis)
+
+    else:
+        return ''
 
 #Continents Filter Endpoint
 @app.route('/_continent_filters', methods=['POST'])

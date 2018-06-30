@@ -1,0 +1,125 @@
+faculty,partner_uni,partner_uni_country,partner_uni_state,partner_uni_continent,partner_uni_image,partner_uni_qs_ranking,partner_uni_qs_mba_ranking,cost_sgd_min,cost_sgd_max,cost_sgd_avg,cost_native_min,cost_native_max,cost_native_avg,visa_requirement,currency_type,exchange_rate_to_sgd,brochure
+NUS Business School,Monash University,Australia,Melbourne,Oceania,Monash.jpg,59,,1566,2273,1919,1550,2250,1900,,AUD,1.01,sep_australia_monash.pdf
+NUS Business School,The University of Adelaide,Australia,Adelaide,Oceania,Adelaide.jpg,114,,1313,2767,2040,1300,2740,2020,,AUD,1.01,sep_australia_adelaide.pdf
+NUS Business School,The University of Melbourne,Australia,Melbourne,Oceania,Melbourne.jpg,39,,1293,2525,1909,1280,2500,1890,,AUD,1.01,sep_australia_melbourne.pdf
+NUS Business School,The University of New South Wales,Australia,Sydney,Oceania,Unsw.jpg,45,,1869,3202,2535,1850,3170,2510,,AUD,1.01,sep_australia_unsw.pdf
+NUS Business School,The University of Queensland,Australia,Brisbane,Oceania,Queensland.jpg,48,,1803,3192,2497,1785,3160,2473,,AUD,1.01,sep_australia_queensland.pdf
+NUS Business School,The University of Sydney,Australia,Sydney,Oceania,Sydney.jpg,42,,1899,3161,2530,1880,3130,2505,,AUD,1.01,sep_australia_sydney.pdf
+NUS Business School,The Australian National University,Australia,Canberra,Oceania,Anu.jpg,24,,1667,2606,2136,1650,2580,2115,,AUD,1.01,sep_australia_anu.pdf
+NUS Business School,The University of Western Australia,Australia,Perth,Oceania,Western_Australia.jpg,91,,1869,3111,2490,1850,3080,2465,,AUD,1.01,sep_australia_uwa.pdf
+NUS Business School,University of Innsbruck,Austria,Innsbruck,Europe,Innsbruck.jpg,279,,909,1010,960,900,1000,950,,AUD,1.01,sep_austria_uibk.pdf
+NUS Business School,Vienna University of Economics and Business Admin,Austria,Vienna,Europe,Vienna.jpg,175,,2016,2256,2136,1260,1410,1335,,EUR,1.6,
+NUS Business School,Free University of Brussels,Belgium,Brussels,Europe,Brussels.jpg,No Rank,,2200,2520,2360,1375,1575,1475,,EUR,1.6,
+NUS Business School,Concordia University,Canada,Montreal,North America,Concordia.jpg,464,,2080,2317,2199,2000,2228,2114,,CAD,1.04,sep_canada_concordia_university.pdf
+NUS Business School,HEC Montreal,Canada,Montreal,North America,HEC_Montreal.jpg,149,,1379,1975,1677,1326,1899,1613,,CAD,1.04,
+NUS Business School,McGill University,Canada,Quebec,North America,Mcgill.jpg,33,,1379,1975,1677,1326,1899,1613,,CAD,1.04,sep_canada_mcgill_university.pdf
+NUS Business School,McMaster University,Canada,Ontario,North America,Mcmaster.jpg,146,,2427,2427,2427,2334,2334,2334,,CAD,1.04,
+NUS Business School,Queen's University at Kingston,Canada,Kingston,North America,Queens_Kingston.jpg,239,,1334,2063,1699,1283,1984,1633,,CAD,1.04,sep_canada_queens_university.pdf
+NUS Business School,Simon Fraser University,Canada,Burnaby,North America,Simon_Fraser.jpg,264,,1997,1997,1997,1920,1920,1920,,CAD,1.04,sep_canada_simon_fraser_university.pdf
+NUS Business School,The University of British Columbia,Canada,Vancouver,North America,British_Columbia.jpg,47,,1997,1997,1997,1920,1920,1920,,CAD,1.04,sep_canada_university_british_columbia.pdf
+NUS Business School,University of Toronto,Canada,Toronto,North America,Toronto.jpg,28,,1643,2201,1922,1580,2116,1848,,CAD,1.04,sep_canada_university_toronto.pdf
+NUS Business School,"University of Victoria, British Columbia",Canada,Victoria,North America,Victoria_British_Columbia.jpg,47,,1997,1997,1997,1920,1920,1920,,CAD,1.04,sep_canada_university_victoria.pdf
+NUS Business School,York University,Canada,Toronto,North America,York.jpg,481,,1643,2201,1922,1580,2116,1848,,CAD,1.04,sep_canada_york_university.pdf
+NUS Business School,Beihang University,China,Beijing,Asia,Beihang.jpg,491,,945,1617,1281,4500,7700,6100,,RMB,0.21,
+NUS Business School,Central University of Finance & Economics,China,Beijing,Asia,China_Central.jpg,801,,945,1617,1281,4500,7700,6100,,RMB,0.21,
+NUS Business School,Fudan University,China,Shanghai,Asia,Fudan.jpg,44,,1126,1336,1231,5360,6360,5860,,RMB,0.21,sep_china_fudan.pdf
+NUS Business School,Nanjing University,China,Nanjing,Asia,Nanjing.jpg,122,,588,777,683,2800,3700,3250,,RMB,0.21,sep_china_nanjing.pdf
+NUS Business School,Nankai University,China,Tianjin,Asia,Nankai.jpg,338,,428,869,649,2040,4140,3090,,RMB,0.21,sep_china_nankai.pdf
+NUS Business School,Peking University,China,Beijing,Asia,Peking.jpg,30,,945,1617,1281,4500,7700,6100,,RMB,0.21,sep_china_peking.pdf
+NUS Business School,Shanghai Jiao Tong University,China,Shanghai,Asia,Jiao_Tong.jpg,59,,950,1344,1147,4525,6400,5463,,RMB,0.21,sep_china_shanghai_jiao_tong.pdf
+NUS Business School,Sun Yat Sen University,China,Guangzhou,Asia,Sun_Yat_Sen.jpg,295,,473,599,536,2250,2850,2550,,RMB,0.21,sep_china_sun_yat-sen.pdf
+NUS Business School,Tsinghua University,China,Beijing,Asia,Tsing_Hua.jpg,17,,683,935,809,3250,4450,3850,,RMB,0.21,sep_china_tsinghua.pdf
+NUS Business School,Xi'an Jiaotong University,China,Xi'an,Asia,Jiaotong.jpg,313,,412,693,552,1960,3300,2630,,RMB,0.21,sep_china_xian_jiaotong.pdf
+NUS Business School,Xiamen University,China,Xiamen,Asia,Xiamen.jpg,476,,599,809,704,2850,3850,3350,,RMB,0.21,sep_china_xiamen.pdf
+NUS Business School,Zhejiang University,China,Hangzhou,Asia,Zhejiang.jpg,68,,525,525,525,2500,2500,2500,,RMB,0.21,sep_china_zhejiang.pdf
+NUS Business School,University of Zagreb,Croatia,Zagreb,Europe,Zagreb.jpg,801,,848,848,848,530,530,530,,EUR,1.6,sep_croatia_zagreb.pdf
+NUS Business School,Aarhus School of Business,Denmark,Aarhus,Europe,Aarhus_Business.jpg,141,,1029,1659,1344,4900,7900,6400,,DKK,0.21,sep_denmark_aarhus_university.pdf
+NUS Business School,Aarhus University,Denmark,Aarhus,Europe,Aarhus.jpg,141,,1029,1659,1344,4900,7900,6400,,DKK,0.21,sep_denmark_aarhus_university.pdf
+NUS Business School,Copenhagen Business School,Denmark,Frederiksberg,Europe,Copenhagen.jpg,79,,1575,2247,1911,7500,10700,9100,,DKK,0.21,sep_denmark_university_of_copenhagen.pdf
+NUS Business School,"City, University of London",England,London,Europe,City_London.jpg,351,,1879,2196,2038,1044,1220,1132,,GBP,1.8,
+NUS Business School,Imperial College London,England,London,Europe,Imperial.jpg,8,,1879,2196,2038,1044,1220,1132,,GBP,1.8,sep_uk_icl.pdf
+NUS Business School,"Royal Holloway, University of London",England,Egham,Europe,Royal_Holloway.jpg,236,,1879,2196,2038,1044,1220,1132,,GBP,1.8,
+NUS Business School,University of Leeds,England,Leeds,Europe,Leeds.jpg,93,,965,1562,1264,536,868,702,,GBP,1.8,sep_uk_leeds.pdf
+NUS Business School,The University of Manchester,England,Manchester,Europe,Manchester.jpg,29,,1478,1908,1693,821,1060,941,,GBP,1.8,sep_uk_manchester.pdf
+NUS Business School,The University of Nottingham,England,Nottingham,Europe,Nottingham.jpg,82,,1440,1800,1620,800,1000,900,,GBP,1.8,sep_uk_nottingham.pdf
+NUS Business School,University of Warwick,England,Coventry,Europe,Warick.jpg,54,,1440,1800,1620,800,1000,900,,GBP,1.8,sep_uk_warick.pdf
+NUS Business School,Tallinn University of Technology,Estonia,Tallinn,Europe,Tallin.jpg,601,,1394,1634,1514,871,1021,946,,EUR,1.6,sep_estonia_tallinn.pdf
+NUS Business School,Aalto University School of Economics,Finland,Helsinki,Europe,Aalto_Business.jpg,140,,2389,2629,2509,1493,1643,1568,,EUR,1.6,
+NUS Business School,Aalto University,Finland,Espoo,Europe,Aalto_Uni.jpg,140,,2080,2320,2200,1300,1450,1375,,EUR,1.6,
+NUS Business School,"Aalto University, Helsinki",Finland,Helsinki,Europe,Aalto_Helsinki.jpg,140,,2389,2629,2509,1493,1643,1568,,EUR,1.6,
+NUS Business School,ESSEC Business School,France,Cergy,Europe,Essec.jpg,,27,1600,1600,1600,1000,1000,1000,,EUR,1.6,
+NUS Business School,Hautes Etudes Commerciales (HEC) Paris,France,Jouy-en-Josas,Europe,HEC_Paris.jpg,,3,1600,1600,1600,1000,1000,1000,,EUR,1.6,
+NUS Business School,Mannheim Business School,Germany,Mannheim,Europe,Mannheim.jpg,338,,1264,1440,1352,790,900,845,,EUR,1.6,sep_germany_uni_mannheim.pdf
+NUS Business School,Technical University of Munich,Germany,Munich,Europe,Munich.jpg,61,,2240,2560,2400,1400,1600,1500,,EUR,1.6,
+NUS Business School,University of Cologne,Germany,Cologne,Europe,Cologne.jpg,306,,1904,2174,2039,1190,1359,1275,,EUR,1.6,
+NUS Business School,University of Konstanz,Germany,Koztanz,Europe,Konstanz.jpg,397,,1136,2192,1664,710,1370,1040,,EUR,1.6,sep_germany_uni_konstanz.pdf
+NUS Business School,WHU - Otto Beisheim School of Management,Germany,Vallendar,Europe,WHU.jpg,,71,1200,1280,1240,750,800,775,,EUR,1.6,
+NUS Business School,The Chinese University of Hong Kong,Hong Kong,,Asia,Chinese_Hong_Kong.jpg,49,,1494,1613,1553,8786,9487,9137,,HKD,0.17,sep_hk_cuhk.pdf
+NUS Business School,City University of Hong Kong,Hong Kong,,Asia,City_Hongkong.jpg,55,,1010,1255,1132,5940,7380,6660,,HKD,0.17,sep_hk_cityu.pdf
+NUS Business School,Hong Kong University of Science & Technology,Hong Kong,,Asia,Hkust.jpg,37,,1426,1488,1457,8391,8750,8571,,HKD,0.17,
+NUS Business School,The University of Hong Kong,Hong Kong,,Asia,Hongkong_U.jpg,25,,1428,1513,1471,8400,8900,8650,,HKD,0.17,sep_hk_hku.pdf
+NUS Business School,Corvinus University of Budapest,Hungary,Budapest,Europe,Corvinus.jpg,801,,1152,1248,1200,240000,260000,250000,,FT,0.0048,
+NUS Business School,University College Dublin,Ireland,Dublin,Europe,Dublin.jpg,193,,1728,2528,2128,1080,1580,1330,,EUR,1.6,sep_ireland_ucd.pdf
+NUS Business School,The Hebrew University of Jerusalem,Israel,Jerusalem,Asia,Hebrew.jpg,154,,544,816,680,400,600,500,,USD,1.36,sep_israel_hebrew_univesity_jerusalem.pdf
+NUS Business School,University of Commerce 'Luigi Bocconi' Milan,Italy,Milan,Europe,Bocconi.jpg,,11,2000,2480,2240,1250,1550,1400,,EUR,1.6,
+NUS Business School,Keio University,Japan,Tokyo,Asia,Keio.jpg,198,,1392,2220,1806,116000,185000,150500,,JPY,0.012,sep_japan_keio.pdf
+NUS Business School,Vilnius University,Lithuania,Vilnius,Europe,Vilnius.jpg,488,,782,782,782,489,489,489,,EUR,1.6,sep_lithuania_vilinus.pdf
+NUS Business School,Inst Tech y de Estudios Superiores de Monterrey,Mexico,Monterrey,North America,Monterrey.jpg,178,,1510,1809,1659,1110,1330,1220,,USD,1.36,sep_mexico_tec_de_monterrey.pdf
+NUS Business School,Erasmus University,Netherlands,Rotterdam,Europe,Erasmus.jpg,179,,1968,2320,2144,1230,1450,1340,,EUR,1.6,
+NUS Business School,Maastricht University,Netherlands,Maastricht,Europe,Maastricht.jpg,211,,1840,2000,1920,1150,1250,1200,,EUR,1.6,
+NUS Business School,Tilburg University,Netherlands,Tilburg,Europe,Tilburg.jpg,319,,1168,1360,1264,730,850,790,,EUR,1.6,
+NUS Business School,University of Canterbury,New Zealand,Christchurch,Oceania,Canterbury.jpg,231,,1822,2742,2282,1980,2980,2480,,NZD,0.92,sep_new_zealand_canterbury.pdf
+NUS Business School,The University of Auckland,New Zealand,Auckland,Oceania,Auckland.jpg,85,,1555,2521,2038,1690,2740,2215,,NZD,0.92,sep_new_zealand_auckland.pdf
+NUS Business School,University of Otago,New Zealand,Otago,Oceania,Otago.jpg,175,,1334,2502,1918,1450,2720,2085,,NZD,0.92,sep_new_zealand_otago.pdf
+NUS Business School,Victoria University of Wellington,New Zealand,Wellington,Oceania,Wellington.jpg,221,,1444,2300,1872,1570,2500,2035,,NZD,0.92,sep_new_zealand_victoria.pdf
+NUS Business School,BI Norwegian Business School,Norway,Oslo,Europe,BI_Norwegian.jpg,,27,3060,3400,3230,18000,20000,19000,,NOK,0.17,
+NUS Business School,Norwegian School of Economics & Business Admin,Norway,Bergen,Europe,Norwegian.jpg,151,,2635,3060,2848,15500,18000,16750,,NOK,0.17,
+NUS Business School,Warsaw School of Economics,Poland,Warsaw,Europe,Warsaw.jpg,,101,1289,1397,1343,3580,3880,3730,,PLN,0.36,
+NUS Business School,Catholic University of Portugal,Portugal,Lisbon,Europe,Portugal_Lisbon.jpg,No Rank,,1520,1840,1680,950,1150,1050,,EUR,1.6,
+NUS Business School,Universidade Nova De Lisboa,Portugal,Lisbon,Europe,Nova.jpg,405,,1520,1840,1680,950,1150,1050,,EUR,1.6,
+NUS Business School,Saint Petersburg State University,Russia,Saint Petersburg,Europe,Petersburg.jpg,235,,1188,1364,1276,54000,62000,58000,,RUB,0.022,
+NUS Business School,The University of Edinburgh,Scotland,Edinburgh,Europe,Edinburgh.jpg,18,,1112,2192,1652,695,1370,1033,,EUR,1.6,sep_uk_edinburgh.pdf
+NUS Business School,Nanyang Technological University,Singapore,,Asia,NTU.jpg,12,,600,1000,800,600,1000,800,,SGD,1,
+NUS Business School,Singapore Management University,Singapore,,Asia,SMU.jpg,500,,600,1000,800,600,1000,800,,SGD,1,
+NUS Business School,University of Ljubljana,Slovenia,Ljubljana,Europe,Ljubljana.jpg,651,,1416,1576,1496,885,985,935,,EUR,1.6,
+NUS Business School,"Ewha Women's University,Seoul",South Korea,Seoul,Asia,Ewha.jpg,319,,1320,1560,1440,1100000,1300000,1200000,,WON,0.0012,
+NUS Business School,Hanyang University,South Korea,Seoul,Asia,Hanyang.jpg,151,,1320,1560,1440,1100000,1300000,1200000,,WON,0.0012,
+NUS Business School,Korea University,South Korea,Seoul,Asia,Korea.jpg,86,,1320,1560,1440,1100000,1300000,1200000,,WON,0.0012,sep_korea_ku.pdf
+NUS Business School,Seoul National University,South Korea,Seoul,Asia,SNU.jpg,36,,1320,1560,1440,1100000,1300000,1200000,,WON,0.0012,sep_korea_snu.pdf
+NUS Business School,Yonsei University,South Korea,Seoul,Asia,Yonsei.jpg,107,,1440,1680,1560,1200000,1400000,1300000,,WON,0.0012,sep_korea_yonsei.pdf
+NUS Business School,Esade University,Spain,Barcelona,Europe,Esade.jpg,,17,2176,2501,2338,1360,1563,1462,,EUR,1.6,
+NUS Business School,University of Navarra,Spain,Pamplona,Europe,Navarra.jpg,242,,2176,2501,2338,1360,1563,1462,,EUR,1.6,
+NUS Business School,Lund University,Sweden,Lund,Europe,Lund.jpg,92,,1215,1455,1335,8100,9700,8900,,SEK,0.15,sep_sweden_lund_university.pdf
+NUS Business School,Stockholm School of Economics,Sweden,Stockholm,Europe,Stockholm_Econs.jpg,,19,1230,1230,1230,8200,8200,8200,,SEK,0.15,
+NUS Business School,University of Stockholm,Sweden,Stockholm,Europe,Stockholm.jpg,200,,1230,1230,1230,8200,8200,8200,,SEK,0.15,sep_sweden_stockholm_university.pdf
+NUS Business School,Uppsala University,Sweden,Uppsala,Europe,Uppsala.jpg,117,,1275,1275,1275,8500,8500,8500,,SEK,0.15,sep_sweden_uppsala_univesity.pdf
+NUS Business School,European Business School,Switzerland,Yvorne,Europe,EBS.jpg,,111,3036,3588,3312,2200,2600,2400,,CHF,1.38,
+NUS Business School,University of St Gallen,Switzerland,St Gallen,Europe,Gallen.jpg,375,,3036,3588,3312,2200,2600,2400,,CHF,1.38,
+NUS Business School,National Cheng Kung University,Taiwan,Tainan,Asia,Cheng_Kung.jpg,234,,933,1215,1074,20740,27000,23870,,NTD,0.045,sep_taiwan_ncku.pdf
+NUS Business School,National Chengchi University,Taiwan,Taipei,Asia,Chengchi.jpg,601,,933,1215,1074,20740,27000,23870,,NTD,0.045,
+NUS Business School,National Taiwan University,Taiwan,Taipei,Asia,NTUTW.jpg,72,,950,1211,1080,21100,26900,24000,,NTD,0.045,sep_taiwan_ntu.pdf
+NUS Business School,Chulalongkorn University,Thailand,Bangkok,Asia,Chula.jpg,271,,943,1435,1189,23000,35000,29000,,THB,0.041,sep_thailand_chulalongkorn.pdf
+NUS Business School,Thammasat University,Thailand,Bangkok,Asia,Thammasat.jpg,601,,943,1435,1189,23000,35000,29000,,THB,0.041,
+NUS Business School,"Bogazici University, Turkey",Turkey,Istanbul,Europe,Bogazici.jpg,571,,2287,2287,2287,7624,7624,7624,,TRY,0.3,
+NUS Business School,Sabanci University,Turkey,Istanbul,Europe,Sabanci.jpg,501,,2287,2287,2287,7624,7624,7624,,TRY,0.3,sep_turkey_sabanci.pdf
+NUS Business School,Arizona State University,USA,Arizona,North America,Arizona.jpg,212,,1918,2380,2149,1410,1750,1580,Yes,USD,1.36,sep_usa_arizona_state_university.pdf
+NUS Business School,Boston University,USA,Boston,North America,Boston.jpg,93,,1451,3618,2534,1067,2660,1864,Yes,USD,1.36,sep_usa_boston_university.pdf
+NUS Business School,Clarkson University,USA,New York,North America,Clarkson.jpg,601,,1277,2301,1789,939,1692,1316,Yes,USD,1.36,sep_usa_clarkson_university.pdf
+NUS Business School,Indiana University,USA,Bloomington,North America,Indiana.jpg,323,,1972,2448,2210,1450,1800,1625,Yes,USD,1.36,
+NUS Business School,New York University,USA,New York,North America,NYU.jpg,43,,3725,4949,4337,2739,3639,3189,Yes,USD,1.36,
+NUS Business School,The College of William & Mary,USA,Virginia,North America,William.jpg,581,,2436,2708,2572,1791,1991,1891,Yes,USD,1.36,sep_usa_the_college_of_william_and_mary.pdf
+NUS Business School,University of California,USA,California,North America,Cali.jpg,No Rank,,3128,3518,3323,2300,2587,2444,Yes,USD,1.36,sep_usa_university_of_california.pdf
+NUS Business School,University of Connecticut,USA,Connecticut,North America,Connecticut.jpg,373,,2516,2584,2550,1850,1900,1875,Yes,USD,1.36,sep_usa_university_of_connecticut.pdf
+NUS Business School,"University of Hawaii, Manoa",USA,Hawaii,North America,Manoa.jpg,302,,3196,3604,3400,2350,2650,2500,Yes,USD,1.36,sep_usa_university_of_hawaii_at_manoa.pdf
+NUS Business School,University of Miami,USA,Miami,North America,Miami.jpg,242,,2978,3386,3182,2190,2490,2340,Yes,USD,1.36,sep_usa_university_of_miami.pdf
+NUS Business School,"University of Michigan, Ann Arbor",USA,Michigan,North America,Michigan.jpg,20,,2271,2516,2394,1670,1850,1760,Yes,USD,1.36,sep_usa_university_of_michigan.pdf
+NUS Business School,University of Notre Dame,USA,Indiana,North America,Notre.jpg,212,,1972,2448,2210,1450,1800,1625,Yes,USD,1.36,sep_usa_university_of_notre_dame.pdf
+NUS Business School,University of Oregon,USA,Oregon,North America,Oregon.jpg,581,,2308,2629,2468,1697,1933,1815,Yes,USD,1.36,sep_usa_university_of_oregon.pdf
+NUS Business School,University of Pittsburgh,USA,Pennsylvania,North America,Pitts.jpg,136,,2448,2992,2720,1800,2200,2000,Yes,USD,1.36,sep_usa_university_of_pittsburgh.pdf
+NUS Business School,University of Southern California,USA,California,North America,South_Cali.jpg,115,,3128,3518,3323,2300,2587,2444,Yes,USD,1.36,sep_usa_university_of_southern_california.pdf
+NUS Business School,The University of Texas at Austin,USA,Texas,North America,Texas.jpg,63,,2203,2557,2380,1620,1880,1750,Yes,USD,1.36,sep_usa_the_university_of_texas_at_austin.pdf
+NUS Business School,"University of California, Berkeley",USA,California,North America,Berkeley.jpg,27,,3128,3518,3323,2300,2587,2444,Yes,USD,1.36,
+NUS Business School,The George Washington University,USA,Washington,North America,GW.jpg,345,,3264,3740,3502,2400,2750,2575,Yes,USD,1.36,sep_usa_the_george_washington_university.pdf
+NUS Business School,University of Virginia,USA,Virginia,North America,Virginia.jpg,192,,2020,2224,2122,1485,1635,1560,Yes,USD,1.36,sep_usa_university_of_virginia.pdf
+NUS Business School,"University of Washington, Seattle",USA,Washington,North America,Seattle.jpg,66,,3264,3740,3502,2400,2750,2575,Yes,USD,1.36,sep_usa_university_of_washington_seattle.pdf
+NUS Business School,University of Wisconsin-Madison,USA,Wisconsin,North America,Wisconsin.jpg,53,,2428,2632,2530,1785,1935,1860,Yes,USD,1.36,sep_usa_university_of_wisconsin_madison.pdf

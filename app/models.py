@@ -38,6 +38,9 @@ class Mapping(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     faculty = db.Column(db.String(64))
     partner_uni = db.Column(db.String(128))
+    #Partner uni QS Rankings
+    partner_uni_qs_ranking = db.Column(db.Integer)
+    partner_uni_qs_mba_ranking = db.Column(db.Integer)
     #Main partner uni modules
     partner_uni_module_1 = db.Column(db.String(64))
     partner_uni_module_1_title = db.Column(db.String(128))
@@ -60,6 +63,15 @@ class Mapping(db.Model):
     nus_module_2 = db.Column(db.String(64))
     nus_module_2_title = db.Column(db.String(128))
     nus_module_2_credits = db.Column(db.String(64))
+    #Cost related data
+    cost_sgd_min = db.Column(db.Integer)
+    cost_sgd_max = db.Column(db.Integer)
+    cost_sgd_avg = db.Column(db.Integer)
+    cost_native_min = db.Column(db.Integer)
+    cost_native_max = db.Column(db.Integer)
+    cost_native_avg = db.Column(db.Integer)
+    currency_type = db.Column(db.String(64))
+    exchange_rate_to_sgd = db.Column(db.Float)
 
     def __repr(self):
         return '<Partner uni {} - Module {}; NUS faculty {} - Module {}>'.format(self.partner_uni, self.partner_uni_module_1, self.faculty, self.nus_module_1)

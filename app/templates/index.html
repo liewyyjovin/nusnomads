@@ -58,39 +58,71 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.js"></script>
     <script type="text/javascript">
-    //Listening to continent filter click POST to backend
-    var modulesCallback = '';
-    var continentsCallback = '';
+    //Helper function for intersection of arrays
+    //intersection(array1, array2, array3, ...)
+    function intersection() {
+        var result = [];
+        var lists;
 
-    var continentList = []
-    $("#america").click(function() {
-        $(this).toggleClass('active');
-        var continent = $("#america").text();
-        console.log(continent);
-        if ($('#america').hasClass('active')){
-            continentList.push(continent);
+        if(arguments.length === 1) {
+            lists = arguments[0];
         } else {
-            continentList = continentList.filter(item => item !== continent)
+            lists = arguments;
         }
-        console.log(continentList);
+
+        for(var i = 0; i < lists.length; i++) {
+            var currentList = lists[i];
+            for(var y = 0; y < currentList.length; y++) {
+                var currentValue = currentList[y];
+                if(result.indexOf(currentValue) === -1) {
+                    var existsInAll = true;
+                    for(var x = 0; x < lists.length; x++) {
+                        if(lists[x].indexOf(currentValue) === -1) {
+                            existsInAll = false;
+                            break;
+                        }
+                    }
+                    if(existsInAll) {
+                        result.push(currentValue);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    //Access Ajax variables here, by default, it should contain full list of universities
+    var completeListUnis = {{ unis|tojson }};
+    var modulesCallback = completeListUnis;
+    var continentsCallback = completeListUnis;
+    var qsRankingCallback = completeListUnis;
+    var costCallback = completeListUnis;
+
+    //Cost filters
+    var costList = []
+    $(".filter__blocks--cost").click(function() {
+        $(this).toggleClass('active');
+        var cost = $(this).attr('value');
+        if ($(this).hasClass('active')){
+            costList.push(cost);
+        } else {
+            costList = costList.filter(item => item !== cost)
+        }
+        console.log(costList);
         $.ajax({
           type: "POST",
           contentType: "application/json;charset=utf-8",
-          url: "/_continent_filters",
+          url: "/_cost_filters",
           traditional: "true",
-          data: JSON.stringify({continentList}),
+          data: JSON.stringify({costList}),
           dataType: "json",
           success: function(response) {
-                        var all_unis = [];
-                        var shownArray = []
-                        //filter = filtered unis, all_unis = all unis
-                        //for each text in div, if it is not in filter, hide it! *Not found in array returns -1
+                        var filter = response;
                         $(".loader").show();
                         $('.loader__background').show()
+                        merged = intersection(response, modulesCallback, qsRankingCallback, continentsCallback)
+                        console.log(merged)
                         setTimeout(function() {
-                            if ($(".uni__card__wrapper").attr('data-filter') == 'filter on') {
-                                merged  = response.filter(value => -1 !== modulesCallback.indexOf(value))
-                                console.log(merged)
                                 $(".uni__card__content--name").each(function(index, obj)
                                 {
                                     if (-1 == $.inArray($(this).text(), merged)) {
@@ -99,151 +131,64 @@
                                     if (-1 != $.inArray($(this).text(), merged)) {
                                         $(this).parent().parent().show();
                                     };
-                                })
-                            } else {
+                                });
+                            $('.loader').hide();
+                            $('.loader__background').hide();
+                        }, 600);
+                        costCallback = response;
+                    }
+      });
+    });
+
+    //QS Ranking filters
+    $(".filter__blocks--rankings").click(function() {
+        $(".filter__blocks--rankings").not(this).removeClass('active');
+        $(this).toggleClass('active')
+        if ($(this).hasClass('active')) {
+            var ranking = $(this).attr('value');
+        } else {
+            var ranking = ''
+        }
+        console.log(ranking)
+        $.ajax({
+          type: "POST",
+          contentType: "application/json;charset=utf-8",
+          url: "/_qs_ranking_filters",
+          traditional: "true",
+          data: JSON.stringify({ranking}),
+          dataType: "json",
+          success: function(response) {
+                        var filter = response;
+                        console.log(filter);
+                        $(".loader").show();
+                        $('.loader__background').show()
+                        merged = intersection(response, modulesCallback, continentsCallback, costCallback)
+                        console.log(merged)
+                        setTimeout(function() {
                             $(".uni__card__content--name").each(function(index, obj)
                             {
-                                if (-1 == $.inArray($(this).text(), response)) {
+                                if (-1 == $.inArray($(this).text(), merged)) {
                                     $(this).parent().parent().hide();
                                 };
-                                if (-1 != $.inArray($(this).text(), response)) {
+                                if (-1 != $.inArray($(this).text(), merged)) {
                                     $(this).parent().parent().show();
                                 };
                             });
-                            }
-
                             $('.loader').hide();
                             $('.loader__background').hide();
                         }, 600);
-                        continentsCallback = response;
-                        }
-      });
-
+                        qsRankingCallback = response;
+                    }
+        });
     });
 
-    $("#oceania").click(function() {
+    //Continent filters
+    var continentList = []
+    $(".filter__blocks--continents").click(function() {
         $(this).toggleClass('active');
-        var continent = $("#oceania").text();
+        var continent = $(this).text();
         console.log(continent);
-        if ($('#oceania').hasClass('active')){
-            continentList.push(continent);
-        } else {
-            continentList = continentList.filter(item => item !== continent)
-        }
-            console.log(continentList);
-        $.ajax({
-          type: "POST",
-          contentType: "application/json;charset=utf-8",
-          url: "/_continent_filters",
-          traditional: "true",
-          data: JSON.stringify({continentList}),
-          dataType: "json",
-          success: function(response) {
-                        var filter = response;
-                        console.log(filter);
-                        var all_unis = [];
-                        //filter = filtered unis, all_unis = all unis
-                        //for each text in div, if it is not in filter, hide it! *Not found in array returns -1
-                        $(".loader").show();
-                        $('.loader__background').show()
-                        setTimeout(function() {
-                            if ($(".uni__card__wrapper").attr('data-filter') == 'filter on') {
-                                merged  = response.filter(value => -1 !== modulesCallback.indexOf(value))
-                                console.log(merged)
-                                $(".uni__card__content--name").each(function(index, obj)
-                                {
-                                    if (-1 == $.inArray($(this).text(), merged)) {
-                                        $(this).parent().parent().hide();
-                                    };
-                                    if (-1 != $.inArray($(this).text(), merged)) {
-                                        $(this).parent().parent().show();
-                                    };
-                                })
-                            } else {
-                            $(".uni__card__content--name").each(function(index, obj)
-                            {
-                                if (-1 == $.inArray($(this).text(), response)) {
-                                    $(this).parent().parent().hide();
-                                };
-                                if (-1 != $.inArray($(this).text(), response)) {
-                                    $(this).parent().parent().show();
-                                };
-                                });
-                            }
-                            $('.loader').hide();
-                            $('.loader__background').hide();
-                        }, 600);
-                        continentsCallback = response;
-                        }
- 
-      });
-
-    });
-
-    $("#asia").click(function() {
-        $(this).toggleClass('active');
-        var continent = $("#asia").text();
-        console.log(continent);
-        if ($('#asia').hasClass('active')){
-            continentList.push(continent);
-        } else {
-            continentList = continentList.filter(item => item !== continent)
-        }
-            console.log(continentList);
-        $.ajax({
-          type: "POST",
-          contentType: "application/json;charset=utf-8",
-          url: "/_continent_filters",
-          traditional: "true",
-          data: JSON.stringify({continentList}),
-          dataType: "json",
-          success: function(response) {
-                        var filter = response;
-                        console.log(filter);
-                        var all_unis = [];
-                        //filter = filtered unis, all_unis = all unis
-                        //for each text in div, if it is not in filter, hide it! *Not found in array returns -1
-                        $(".loader").show();
-                        $('.loader__background').show()
-                        setTimeout(function() {
-                            if ($(".uni__card__wrapper").attr('data-filter') == 'filter on') {
-                                merged  = response.filter(value => -1 !== modulesCallback.indexOf(value))
-                                console.log(merged)
-                                $(".uni__card__content--name").each(function(index, obj)
-                                {
-                                    if (-1 == $.inArray($(this).text(), merged)) {
-                                        $(this).parent().parent().hide();
-                                    };
-                                    if (-1 != $.inArray($(this).text(), merged)) {
-                                        $(this).parent().parent().show();
-                                    };
-                                })
-                            } else {
-                            $(".uni__card__content--name").each(function(index, obj)
-                            {
-                                if (-1 == $.inArray($(this).text(), response)) {
-                                    $(this).parent().parent().hide();
-                                };
-                                if (-1 != $.inArray($(this).text(), response)) {
-                                    $(this).parent().parent().show();
-                                };
-                                });
-                            }
-                            $('.loader').hide();
-                            $('.loader__background').hide();
-                        }, 600);
-                        continentsCallback = response;
-                        }
- 
-      });
-
-    });
-
-    $("#europe").click(function() {
-        $(this).toggleClass('active');
-        var continent = $("#europe").text();
-        console.log(continent);
-        if ($('#europe').hasClass('active')){
+        if ($(this).hasClass('active')){
             continentList.push(continent);
         } else {
             continentList = continentList.filter(item => item !== continent)
@@ -259,15 +204,11 @@
           success: function(response) {
                         var filter = response;
                         console.log(filter);
-                        var all_unis = [];
-                        //filter = filtered unis, all_unis = all unis
-                        //for each text in div, if it is not in filter, hide it! *Not found in array returns -1
                         $(".loader").show();
                         $('.loader__background').show()
+                        merged = intersection(response, modulesCallback, qsRankingCallback, costCallback)
+                        console.log(merged)
                         setTimeout(function() {
-                            if ($(".uni__card__wrapper").attr('data-filter') == 'filter on') {
-                                merged  = response.filter(value => -1 !== modulesCallback.indexOf(value))
-                                console.log(merged)
                                 $(".uni__card__content--name").each(function(index, obj)
                                 {
                                     if (-1 == $.inArray($(this).text(), merged)) {
@@ -276,26 +217,13 @@
                                     if (-1 != $.inArray($(this).text(), merged)) {
                                         $(this).parent().parent().show();
                                     };
-                                })
-                            } else {
-                            $(".uni__card__content--name").each(function(index, obj)
-                            {
-                                if (-1 == $.inArray($(this).text(), response)) {
-                                    $(this).parent().parent().hide();
-                                };
-                                if (-1 != $.inArray($(this).text(), response)) {
-                                    $(this).parent().parent().show();
-                                };
                                 });
-                            }
                             $('.loader').hide();
                             $('.loader__background').hide();
                         }, 600);
                         continentsCallback = response;
-                        }
- 
+                    }
       });
-
     });
 
     // For dynamic search filtering
@@ -365,20 +293,6 @@
                 selected_modules.push(liToString);
                 console.log(selected_modules);
                 //delete when clicked
-                //Setting attribute to filtered items
-                var attrName = "data-filter";
-                var valName = 'filter on'
-                if (selected_modules.length != 0) {
-                    console.log("Filters on")
-                    $('.uni__card__content--name').each(function(index,obj) {
-                        $(this).parent().parent().attr(attrName, valName);
-                    })
-                } else {
-                    console.log("Filters off")
-                    $('.uni__card__content--name').each(function(index,obj) {
-                        $(this).parent().parent().removeAttr(attrName);
-                    })
-                }
                 li.onclick = function() {
                     removed_mod = this.parentNode.removeChild(this);
                     console.log("Removed" + " " + removed_mod.textContent);
@@ -386,18 +300,6 @@
                     selected_modules = selected_modules.filter(e => e !== removed_mod.textContent);
                     console.log(selected_modules);
                     //POST new selected_modules after element is destroyed
-                    if (selected_modules.length != 0) {
-                        console.log("Filters on")
-                        $('.uni__card__content--name').each(function(index, obj) {
-                            $(this).parent().parent().attr(attrName, valName);
-                        })
-                    } else {
-                        console.log("Filters off")
-                        $('.uni__card__content--name').each(function(index, obj) {
-                            $(this).parent().parent().removeAttr(attrName);
-                        })
-                    }
-
                     $.ajax({
                         type: "POST",
                         contentType: "application/json;charset=utf-8",
@@ -409,21 +311,20 @@
                             var filter = response;
                             console.log(filter);
                             var all_unis = []
-                            //filter = filtered unis, all_unis = all unis
-                            //for each text in div, if it is in filter, show it!
                             $('.loader').show();
                             $('.loader__background').show();
+                            merged = intersection(response, qsRankingCallback, continentsCallback, costCallback)
+                            console.log(merged)
                             setTimeout(function() {
                                 $(".uni__card__content--name").each(function(index, obj)
                                 {
-                                    if (-1 != $.inArray($(this).text(), filter)) {
+                                    if (-1 != $.inArray($(this).text(), merged)) {
                                         $(this).parent().parent().show();
                                     };
                                 });
                                 $('.loader').hide();
                                 $('.loader__background').hide();
                             }, 600);
-
                             modulesCallback = response;
                             }
                         });
@@ -440,21 +341,23 @@
                     success: function(response) {
                         var filter = response;
                         console.log(filter);
-                        //filter = filtered unis, all_unis = all unis
-                        //for each text in div, if it is not in filter, hide it! *Not found in array returns -1
                         $(".loader").show();
                         $('.loader__background').show()
+                        merged = intersection(response, qsRankingCallback, continentsCallback, costCallback)
+                        console.log(merged)
                         setTimeout(function() {
                             $(".uni__card__content--name").each(function(index, obj)
                             {
-                                if (-1 == $.inArray($(this).text(), filter)) {
+                                if (-1 == $.inArray($(this).text(), merged)) {
                                     $(this).parent().parent().hide();
                                 };
+                                if (-1 != $.inArray($(this).text(), merged)) {
+                                    $(this).parent().parent().show();
+                                }
                             });
                             $('.loader').hide();
                             $('.loader__background').hide();
                         }, 600);
-
                         modulesCallback = response;
                         }
                     });

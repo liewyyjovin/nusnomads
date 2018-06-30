@@ -10,6 +10,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121632193-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-121632193-1');
+    </script>
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '956432524563933');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=956432524563933&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
 </head>
 
 <body>
@@ -24,13 +49,31 @@
             <input id = "moduleslist" placeholder="Enter a module to filter" />
             <ul id= "list"></ul>
         </form>
+        <div class="filter__cost">
+            <h2 class="filter__title">💰 Est. Monthly Expense (SGD)</h2>
+            <div class="filter__block__container">
+                <div class="filter__blocks--cost" value="0 AND 1000">< $1000</div>
+                <div class="filter__blocks--cost" value="1000 AND 1500">$1000 ~ $1500</div>
+                <div class="filter__blocks--cost" value="1500 AND 2000">$1500 ~ $2000</div>
+                <div class="filter__blocks--cost" value="2000 AND 10000">> $2000</div>
+            </div>
+        </div>
         <div class="filter__continent">
             <h2 class="filter__title">🌍 Continent</h2>
             <div class="filter__block__container">
-                <div class="filter__blocks" id="america">North America</div>
-                <div class="filter__blocks" id="oceania">Oceania</div>
-                <div class="filter__blocks" id="asia">Asia</div>
-                <div class="filter__blocks" id="europe">Europe</div>
+                <div class="filter__blocks--continents" value="North America">North America</div>
+                <div class="filter__blocks--continents" value="Oceania">Oceania</div>
+                <div class="filter__blocks--continents" value="Asia">Asia</div>
+                <div class="filter__blocks--continents" value="Europe">Europe</div>
+            </div>
+        </div>
+        <div class="filter__rankings">
+            <h2 class="filter__title">🏆 QS Ranking</h2>
+            <div class="filter__block__container">
+                <div class="filter__blocks--rankings" value="20" id="filter__rankings">TOP 20</div>
+                <div class="filter__blocks--rankings" value="100" id="filter__rankings">TOP 100</div>
+                <div class="filter__blocks--rankings" value="300" id="filter__rankings">TOP 300</div>
+                <div class="filter__blocks--rankings" value="500" id="filter__rankings">TOP 500</div>
             </div>
         </div>
 

@@ -13,7 +13,9 @@
                 <h1 class="main__intro__text">We are a growing community of exchange students.</h1>
                 <div class="intro__callToActions">
                     <h2 class="sub__intro__text">Find your dream university. 🏫</h2>
+                    {% if current_user.is_anonymous %}
                     <button class="intro__callToAction__link--primary" id="trigger__cta">Join today</button>
+                    {% endif %}
                     <a class="intro__callToAction__link" href="/about">Learn More</a>
                 </div>
             </div>

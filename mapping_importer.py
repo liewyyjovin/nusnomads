@@ -31,6 +31,7 @@ class MappingImporter(object):
                 row['cost_native_avg'] = result['cost_native_avg']
                 row['currency_type'] = result['currency_type']
                 row['exchange_rate_to_sgd'] = result['exchange_rate_to_sgd']
+                row['brochure'] = result['brochure']
                 mapping_details_list.append(row)
             #pprint(mapping_details_list)
 

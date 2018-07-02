@@ -144,6 +144,10 @@ img.logo {
     border: none;
 }
 
+.header__link.header__link--primary:hover {
+    background-color: #473DE9;
+}
+
 .intro__callToAction__link--primary {
     cursor: pointer;
     outline: none;
@@ -162,6 +166,10 @@ img.logo {
     margin-left: 2em;
 }
 
+.intro__callToAction__link--primary:hover {
+    background-color: #483DE9;
+}
+
 .intro__callToAction__link {
     font-size: 14px;
     text-transform: uppercase;
@@ -176,6 +184,11 @@ img.logo {
     text-decoration: none;
     border-radius: 2em;
     margin-left: 1em;
+}
+
+.intro__callToAction__link:hover {
+    background-color: #483DE9;
+    border: #483DE9 solid;
 }
 
 .intro__callToActions {
@@ -592,6 +605,63 @@ section.school__header__block {
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
+/* toggle menu styling */
+
+.school__menu__container {
+    background-color: #323232;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px 0px;
+}
+
+input.school__menu {
+    display: none;
+}
+
+input.school__menu:checked + label {
+    color: #2F8BE6;
+}
+
+label.school__menu--overview {
+    display: inline-block;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 10px 0px;
+}
+
+label.school__menu--overview:hover {
+    color: #2F8BE6;
+}
+
+label.school__menu--modules {
+    display: inline-block;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 10px 0px;
+    margin-left: 80px;
+}
+
+label.school__menu--modules:hover {
+    color: #2F8BE6;
+}
+
+/* End toggle menu styling */
+
 .school__intro__invisible {
     display: flex;
     flex-direction: horizontal;
@@ -644,10 +714,47 @@ h2.school__location {
     font-size: 20px;
 }
 
-section.module__table {
+/* Overview table styling */
+
+section.overview__table {
     width: calc(100% - 16rem);
     margin-left: 8rem;
 }
+
+span.overview__title {
+    color: #A9A9A9;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+
+}
+
+span.overview__text {
+
+}
+
+a.brochure__open {
+    text-decoration: none;
+    color: white;
+    padding: 5px 15px 5px 15px;
+    background-color: #2F8BE6;
+    border-radius: 100px;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+}
+
+a.brochure__open:hover {
+    background-color: #473DE9;
+}
+
+/* Modules table styling */
+
+section.module__table {
+    width: calc(100% - 16rem);
+    margin-left: 8rem;
+    display: none;
+}
+
 table {
     border-collapse: collapse;
     border-radius: 20px;
@@ -1132,3 +1239,73 @@ button.social__button--twitter {
 span.social__text {
     margin-left: 8px;
 }
+
+/*Profile image header styling */
+.profile__image__cropper {
+    width: 48px;
+    height: 52px;
+    position: relative;
+    background-color: none;
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+
+.profile__image {
+    float: right;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%
+}
+
+.profile__image__cropper:hover + .profile__options {
+    display: block;
+}
+
+.profile__options:hover {
+    display:block;
+}
+
+.profile__options {
+    display: none;
+    position: absolute;
+    margin-left: -54px;
+    margin-top: 70px;
+    background-color: #FFF;
+    z-index:10;
+    width: 140px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 8px 1px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 0px 8px 1px rgba(0,0,0,1);
+    box-shadow: 0px 0px 8px 1px rgba(0,0,0,1);
+}
+
+h2.username {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 20px;
+    margin-top: 20px;
+    color: #A9A9A9;
+}
+
+h2.sign__out {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    color: #363636;
+}
+
+a.sign__out {
+    text-decoration: none;
+}
+
+h2.sign__out:hover {
+    color: #2F8BE6;
+}
+
+
+
+

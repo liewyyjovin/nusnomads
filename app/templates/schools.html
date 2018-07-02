@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    
+
     <section class="school__header__block">
         <div class="school__intro">
             <div class="school__intro__invisible">
@@ -17,10 +17,65 @@
                     
                 </div>
             </div>
+            <div class="school__menu__container">
+                <input class="school__menu" id="tab1" type="radio" name="tabs" checked>
+                <label for="tab1" class="school__menu--overview">Overview</label>
+                <input class="school__menu" id="tab2" type="radio" name="tabs">
+                <label for="tab2" class="school__menu--modules">Modules</label>
+            </div>
         </div>
     </section>
 
-    <section class="module__table">
+    <section class="overview__table" id="overview__tab">
+        <table>
+            <tbody>
+                <tr>
+                    <td><span class="overview__title">🌍 Continent</span></td>
+                    <td><span class="overview__text">{{ school.partner_uni_continent }}</span></td>
+                    <td><span class="overview__title">🗺️  Country</span></td>
+                    <td><span class="overview__text">{{ school.partner_uni_country }}</span></td>
+                </tr>
+                <tr>
+                    <td><span class="overview__title">🏝️  State</span></td>
+                    <td><span class="overview__text">{{ school.partner_uni_state }}</span></td>
+                    <td><span class="overview__title">💹  Currency Type</span></td>
+                    <td><span class="overview__text">{{ school.currency_type }}</span></td>
+                </tr>
+                 <tr>
+                    <td><span class="overview__title">📈  Exchange Rate</span></td>
+                    <td><span class="overview__text">{{ school.exchange_rate_to_sgd }}</span></td>
+                    <td><span class="overview__title">💸  Avg. Monthly Cost</span></td>
+                    <td><span class="overview__text">SGD {{ school.cost_sgd_avg }}</span></td>
+                </tr>
+                 <tr>
+                    <td><span class="overview__title">💰  Monthly Cost Range</span></td>
+                    <td><span class="overview__text">SGD <span style="color: #5CFA87">{{ school.cost_sgd_min }}</span> ~ <span style="color: #EC4662">{{ school.cost_sgd_max }}</span></span></td>
+                    {% if school.partner_uni_qs_ranking %}
+                    <td><span class="overview__title">🏆  Uni QS Ranking</span></td>
+                    <td><span class="overview__text">{{ school.partner_uni_qs_ranking }}</span></td>
+                    {% else %}
+                    <td><span class="overview__title">🏆  MBA QS Ranking</span></td>
+                    <td><span class="overview__text">{{ school.partner_uni_qs_mba_ranking }}</span></td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if school.brochure %}
+                    <td><span class="overview__title">📈  PDF Brochure</span></td>
+                    <td><a class="brochure__open" href = "{{ url_for('static', filename=('brochures/' + school.brochure)) }}" target="_blank">View</a></td>
+                    <td><span class="overview__title">📚  Mappable Modules</span></td>
+                    <td><span class="overview__text">{{ school.module_count }}</span></td>
+                    {% else %}
+                    <td><span class="overview__title">📝  PDF Brochure</span></td>
+                    <td><span class="overview__text"><span style="color: #EC4662">N/A 😭</span></span></td>
+                    <td><span class="overview__title">📚  Mappable Modules</span></td>
+                    <td><span class="overview__text">{{ school.module_count }}</span></td>
+                    {% endif %}
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="module__table" id="modules__tab">
         <table>
             <thead>
                 <tr class="header">
@@ -58,5 +113,25 @@
             {% endfor %}
         </table>
     </section>
+
+    <script type="text/javascript">
+
+    //Toggles tabs when radio checked or unchecked
+    $(function () {
+        $("input[name='tabs']").click(function () {
+            if ($("#tab1").is(":checked")) {
+                $("#overview__tab").show();
+            } else {
+                $("#overview__tab").hide();
+            }
+            if ($("#tab2").is(":checked")) {
+                $("#modules__tab").show();
+            } else {
+                $("#modules__tab").hide();
+            }
+        })
+    })
+
+    </script>
 
 {% endblock %}

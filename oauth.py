@@ -19,7 +19,11 @@ class OAuthSignIn(object):
         pass
 
     def get_callback_url(self):
-        return url_for('oauth_callback', provider=self.provider_name, _external=True, _scheme='https')
+        #For production
+        #return url_for('oauth_callback', provider=self.provider_name, _external=True, _scheme='https')
+
+        #For localhost
+        return url_for('oauth_callback', provider=self.provider_name, _external=True)
 
     @classmethod
     def get_provider(self, provider_name):
@@ -55,7 +59,7 @@ class FacebookSignIn(OAuthSignIn):
 
         print(request.args)
         if 'code' not in request.args:
-            return None, None, None
+            return None, None, None, None
         oauth_session = self.service.get_auth_session(
             data={'code': request.args['code'],
                 'grant_type': 'authorization_code',
@@ -63,10 +67,12 @@ class FacebookSignIn(OAuthSignIn):
             decoder=decode_json
             )
         me = oauth_session.get('me?fields=id,email').json()
+        pic = oauth_session.get(me['id'] + '/picture')
         #Facebook does not provide username, so the email's user is used instead
         return (
                 'facebook$' + me['id'],
                 me.get('email').split('@')[0],
+                pic['data']['url'],
                 me.get('email')
                 )
 
@@ -92,8 +98,9 @@ class TwitterSignIn(OAuthSignIn):
 
     def callback(self):
         request_token = session.pop('request_token')
+        print(request_token)
         if 'oauth_verifier' not in request.args:
-            return None, None, None
+            return None, None, None, None
         oauth_session = self.service.get_auth_session(
                 request_token[0],
                 request_token[1],
@@ -102,5 +109,6 @@ class TwitterSignIn(OAuthSignIn):
         me = oauth_session.get('account/verify_credentials.json').json()
         social_id = 'twitter$' + str(me.get('id'))
         username = me.get('screen_name')
+        profile_image = me.get('profile_image_url_https')
         #Twitter does not provide email
-        return social_id, username, None
+        return social_id, username, profile_image, None

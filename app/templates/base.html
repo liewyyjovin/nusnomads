@@ -86,10 +86,22 @@
                 <img class="logo" src="{{ url_for('static', filename='Logo.png') }}"/>
                 <div class="logo__beta">Beta</div>
             </a>
+            {% if current_user.is_authenticated %}
+            <div class="header__end">
+                <div class="profile__image__cropper">
+                    <img class="profile__image" src="{{ user.profile_image }}" alt="profile image">
+                </div>
+                <div class="profile__options">
+                    <h2 class="username">{{ user.nickname }}</h2>
+                    <a class="sign__out" href="{{ url_for('logout') }}"><h2 class="sign__out">Sign out</h2></a>
+                </div>
+            </div>
+            {% else %}
             <div class="header__end">
                 <a class="header__link" id="trigger__signin">Sign in</a>
                 <button class="header__link header__link--primary" id="trigger__header">Join us</button>
             </div>
+            {% endif %}
         </div>
     </section>
     {% block content %}{% endblock %}

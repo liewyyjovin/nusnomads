@@ -9,6 +9,7 @@ class User(UserMixin, db.Model):
     social_id = db.Column(db.String(64), nullable=False, unique=True)
     nickname = db.Column(db.String(64), nullable=False)
     email = db.Column(db.String(64), nullable=True)
+    profile_image = db.Column(db.String(128), nullable=True)
 
 @lm.user_loader
 def load_user(id):
@@ -72,6 +73,8 @@ class Mapping(db.Model):
     cost_native_avg = db.Column(db.Integer)
     currency_type = db.Column(db.String(64))
     exchange_rate_to_sgd = db.Column(db.Float)
+    #Etc...
+    brochure = db.Column(db.String(64))
 
     def __repr(self):
         return '<Partner uni {} - Module {}; NUS faculty {} - Module {}>'.format(self.partner_uni, self.partner_uni_module_1, self.faculty, self.nus_module_1)

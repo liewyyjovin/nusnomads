@@ -19,6 +19,26 @@ from termcolor import colored
 import json
 import pdb
 
+@app.context_processor
+def inject_user():
+    if not current_user.is_anonymous:
+        engine = create_engine('sqlite:///app.db')
+        con = engine.connect()
+        identity = current_user.id
+        print(identity)
+        user_details = con.execute('''
+                SELECT nickname, profile_image FROM users
+                WHERE id = {}
+                '''.format(identity))
+
+        for user in user_details:
+            user = dict(user)
+        return dict(user=user)
+    else:
+        return ''
+
+
+
 @app.route('/')
 @app.route('/index', methods=['POST'])
 def index():
@@ -230,9 +250,11 @@ def school_page(uni):
     engine = create_engine('sqlite:///app.db')
     con = engine.connect()
     school_details_query = con.execute('''
-            SELECT DISTINCT(partner_uni), partner_uni_image, partner_uni_country, partner_uni_state
+            SELECT DISTINCT(partner_uni), partner_uni_image, partner_uni_country, partner_uni_state,
+            partner_uni_continent, currency_type, exchange_rate_to_sgd, cost_sgd_avg, cost_sgd_min, cost_sgd_max,
+            partner_uni_qs_ranking, partner_uni_qs_mba_ranking, brochure, COUNT(DISTINCT nus_module_1) as module_count
             FROM mapping
-            WHERE partner_uni = "{}";
+            WHERE partner_uni = "{}"
             '''.format(uni))
     #detail returns name, image, state, country of distinct university linked to endpoint
     for detail in school_details_query:
@@ -274,15 +296,20 @@ def oauth_callback(provider):
     if not current_user.is_anonymous:
         return redirect(url_for('index'))
     oauth = OAuthSignIn.get_provider(provider)
-    social_id, username, email = oauth.callback()
+    print(oauth)
+    social_id, username, profile_image, email = oauth.callback()
     if social_id is None:
         flash('Authentication failed.')
         return redirect(url_for('index'))
     user = User.query.filter_by(social_id=social_id).first()
     if not user:
-        user = User(social_id=social_id, nickname=username, email=email)
+        user = User(social_id=social_id, nickname=username, profile_image=profile_image, email=email)
         db.session.add(user)
         db.session.commit()
     login_user(user,True)
     return redirect(url_for('index'))
 
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))

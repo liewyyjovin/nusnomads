@@ -20,10 +20,10 @@ class OAuthSignIn(object):
 
     def get_callback_url(self):
         #For production
-        #return url_for('oauth_callback', provider=self.provider_name, _external=True, _scheme='https')
+        return url_for('oauth_callback', provider=self.provider_name, _external=True, _scheme='https')
 
         #For localhost
-        return url_for('oauth_callback', provider=self.provider_name, _external=True)
+        #return url_for('oauth_callback', provider=self.provider_name, _external=True)
 
     @classmethod
     def get_provider(self, provider_name):
@@ -57,7 +57,6 @@ class FacebookSignIn(OAuthSignIn):
         def decode_json(payload):
             return json.loads(payload.decode('utf-8'))
 
-        print(request.args)
         if 'code' not in request.args:
             return None, None, None, None
         oauth_session = self.service.get_auth_session(
@@ -66,14 +65,15 @@ class FacebookSignIn(OAuthSignIn):
                 'redirect_uri': self.get_callback_url()},
             decoder=decode_json
             )
-        me = oauth_session.get('me?fields=id,email').json()
-        pic = oauth_session.get(me['id'] + '/picture')
+        me = oauth_session.get('me?fields=id,name,email').json()
+        #Facebook returns picture itself not JSON response --> Need to set redirect=0
+        pic = oauth_session.get('10214283468133276/picture?redirect=0').json()
         #Facebook does not provide username, so the email's user is used instead
         return (
                 'facebook$' + me['id'],
-                me.get('email').split('@')[0],
+                me['name'],
                 pic['data']['url'],
-                me.get('email')
+                me['email']
                 )
 
 class TwitterSignIn(OAuthSignIn):

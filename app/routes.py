@@ -10,7 +10,7 @@ import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy import text
 from sqlalchemy import and_
-from flask import Flask, render_template, url_for, request, session, redirect, flash
+from flask import Flask, render_template, url_for, request, session, redirect, flash, send_from_directory
 from flask_login import current_user, UserMixin, login_user, logout_user, LoginManager
 from oauth import OAuthSignIn
 
@@ -313,3 +313,8 @@ def oauth_callback(provider):
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+#Adding sitemap xml for SEO
+@app.route('/sitemap.xml')
+def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])

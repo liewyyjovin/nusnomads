@@ -6,7 +6,7 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, curren
 
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 #Secret key encrypts user sessions
 app.secret_key = os.urandom(24)
 app.config['OAUTH_CREDENTIALS'] = {
